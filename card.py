@@ -1,38 +1,42 @@
 class Card:
-	name = ""
-	funds = 0.0
-	def _init_(self, name: str, amount: float):
+	def __init__(self, name: str, amount: float):
 		self.name = name
 		self.funds = amount
-
-	def swipeDirection(self, direction: str):
+	
+	def is_swipe_proper(self, direction: str):
 		return direction == 'Left-Right'
-	def isReadable(self)
+	
+	def is_read_correct(self):
 		return self.name != None and self.funds != None
-	def sufficientFunds(self, price: float):
-		return (funds is not None) and funds>=price
-		
-	def read_status(self, flag: bool):
+	
+	def is_in_credit(self, price: float):
+		return self.funds is not None and self.funds >= price
+	
+	def do_card_status(self, flag: bool):
 		if flag:
-			print("Card read Successful!\n Welcome, {}".format(self.name))
+			print('\nCard is read successfully.')
+			print('Welcome, %s!' % self.name)
+			print('Current balance: %.2f' % self.funds)
 		else:
-			print("Card read Unsuccessful. Please swipe again.")
+			print('\nSomething went wrong. Please swipe again properly.')
 		return flag
-	def deductFunds(self, flag: bool, price: float):
+	
+	def deduct_funds(self, flag: bool, price: float):
 		if flag == True:
-			if funds >= price:
-				funds = funds - price
-				print("Current balance: {}".format(self.funds))
+			if self.funds >= price:
+				self.funds = self.funds - price
+				print('Amount %.2f is deducted.' % price)
+				print('Current balance: %.2f' % self.funds)
 				flag = True
 			else:
-				print("Unable to deduct due to insufficient funds")
+				print("Unable to deduct %.2f due to insufficient funds." % price)
 				flag = False
 		else:
-			print("Unable to deduct due to unreadable funds")
+			print("No credits were deducted.")
 			flag = False
-
 		return flag
-	def grantCredit(self, flag: bool):
+	
+	def allow_play(self, flag: bool):
 		if flag:
 			print("Enjoy your game!")
 		else:
