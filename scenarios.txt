@@ -1,0 +1,71 @@
+TTT
++Scenario 1: Machine is available, card is valid and in credit+.
+c1: Given the arcade machine is available
+c2: And the card details are valid
+c3: When the card contains sufficient credits
+a1: Then notify that the request is viable
+a2: And deduct credits from the card
+a3: And allow the user to play
+
+TTF
++Scenario 2: Machine is available, card is valid and not in credit+.
+c1: Given the arcade machine is available
+c2: And the card details are valid
+c3: When the card contains insufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+TFT
++Scenario 3: Machine is available, card is invalid and in credit+.
+c1: Given the arcade machine is available
+c2: And the card details are invalid
+c3: When the card contains sufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+TFF
++Scenario 4: Machine is available, card is invalid and not in credit+.
+c1: Given the arcade machine is available
+c2: And the card details are invalid
+c3: When the card contains insufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+FTT
++Scenario 5: Machine is unavailable, card is valid and in credit+.
+c1: Given the arcade machine is unavailable
+c2: And the card details are valid
+c3: When the card contains sufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+FTF
++Scenario 6: Machine is unavailable, card is valid and not in credit+.
+c1: Given the arcade machine is unavailable
+c2: And the card details are valid
+c3: When the card contains insufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+FFT
++Scenario 7: Machine is unavailable, card is invalid and in credit+.
+c1: Given the arcade machine is unavailable
+c2: And the card details are invalid
+c3: When the card contains sufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
+
+FFF
++Scenario 8: Machine is unavailable, card is invalid and not in credit+.
+c1: Given the arcade machine is unavailable
+c2: And the card details are invalid
+c3: When the card contains insufficient credits
+a1: Then notify that the request is unviable
+a2: And do not deduct credits from the card
+a3: And prevent the user to play
