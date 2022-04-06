@@ -6,13 +6,13 @@ import unittest
 class TestScenario2(unittest.TestCase):
 	'''
 	FFT
-    +Scenario 7: Machine is unavailable, card is invalid and in credit+.
-    c1: Given the arcade machine is unavailable
-    c2: And the card details are invalid
-    c3: When the card contains sufficient credits
-    a1: Then notify that the request is unviable
-    a2: And do not deduct credits from the card
-    a3: And prevent the user to play
+	+Scenario 7: Machine is unavailable, card is invalid and in credit+.
+	c1: Given the arcade machine is unavailable
+	c2: And the card details are invalid
+	c3: When the card contains sufficient credits
+	a1: Then notify that the request is unviable
+	a2: And do not deduct credits from the card
+	a3: And prevent the user to play
 	'''
 	def setUp(self) -> None:
 		self.machine = Machine(name = 'Air Hockey', cost = 20.00, available = False)

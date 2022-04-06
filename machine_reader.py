@@ -15,21 +15,26 @@ class MachineReader:
     return self.card.is_valid()
 
   def is_credits_sufficient(self):
-    return self.card.credits >= self.machine.cost if self.is_machine_card_valid() else False
+    if self.card.credits is not None and self.machine.cost is not None:
+      return self.card.credits >= self.machine.cost
+    return False
 
   def notify_request_viable(self):
-    if not self.is_machine_card_valid():
-      print('Red Light: Something went wrong.')
-      return False
-    if self.is_credits_sufficient():
+    if self.play:
       print('Green Light: You can play this game.')
       return True
     else:
-      print('Red Light: Insufficient balance to play.')
+      print('Red Light: You cannot play this game.')
       return False
 
   def deduct_credits(self):
-    return self.card.deduct_credits(self.machine.cost)
+    if self.play:
+      self.card.deduct_credits(self.machine.cost)
+      print('Amount %.2f is deducted. Current balance is %.2f' % (self.machine.cost, self.card.credits))
+      return True
+    else:
+      print('No credits were deducted.')
+      return False
 
   def allow_play(self):
     if self.play:
